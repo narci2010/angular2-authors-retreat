@@ -1,0 +1,29 @@
+<div class="author-list-container row">
+  <div class="author-list-header col-xs-12">
+    <h3> Authors </h3>
+  </div>
+
+  <div class="author-list-body">
+    <div class="author-list-add-btn">
+      <button class="btn btn-default" (click)="addNewAuthor()"> 
+        ADD
+      </button>
+    </div>
+    <div class="author-list-filter row">
+      <div class="col-xs-12 col-sm-3">
+        <input type="text" placeholder="Filter.." [(ngModel)]="filterText" 
+          class="form-control">
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <div class="author-list-tile" *ngFor="let author of authors | filterText: filterText">
+        <span class="author-list-tile-text">
+          {{ author.name }}
+        </span>
+        <span class="author-list-tile-icon" (click)="goToAuthorDetails(author)">
+          <i class="glyphicon glyphicon-play-circle"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
